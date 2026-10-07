@@ -20,9 +20,12 @@ const projectRoot = path.resolve(__dirname, '../../../..');   // Get absolute pa
 
 const inputArgument = process.argv[2] || "docs/architecture/schema.mmd";   // Get input argument from command line
 
-const inputFilePath = path.resolve(projectRoot, 'docs/architecture/schema.mmd');   // Define the input file path to Mermaid file
+const inputFilePath = path.resolve(projectRoot, inputArgument);   // Define the input file path to Mermaid file
 const outputFilePath = path.resolve(projectRoot, 'docs/architecture/erd.svg'); // Define output file path for SVG file
-const result = spawnSync('npx', ['mmdc', '-i', inputFilePath, '-o', outputFilePath], { encoding: 'utf-8' });    // Execute the Mermaid CLI command
+const result = spawnSync('npx', ['mmdc', '-i', inputFilePath, '-o', outputFilePath], {
+  cwd: projectRoot,
+  encoding: 'utf-8'
+});    // Execute the Mermaid CLI command
 
 if (result.error) { // If there is an error
   console.error(`SYNTAX_ERROR: ${result.error.message}`);

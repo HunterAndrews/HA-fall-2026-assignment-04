@@ -10,12 +10,7 @@ description: This skill generates an entity-relationship diagram (ERD) from a Me
    - PK: Primary Key
    - FK: Foreign Key
    - Cardinality: One-to-One, One-to-Many, Many-to-One, Many-to-Many
-2. Write the drafted Mermaid syntax directly to docs/architecture/schema.mmd.
-   - Use the following syntax to create a Mermaid block:
-     ```
-     ```mermaid
-     <Mermaid Syntax>
-     ```
+2. Write only raw Mermaid syntax directly to docs/architecture/schema.mmd. Do not include Markdown code fences.
 3. Execute node scripts/render_erd.js docs/architecture/schema.mmd.
    - This script compiles the Mermaid syntax to an SVG file and prints SUCCESS. The renderer reads docs/architecture schema.mmd and generates docs/architecture/erd.svg. A successful execution prints SUCCESS, A failed execution prints SYNTAX_ERROR.
 4. Self-Correction Loop: If execution fails with SYNTAX_ERROR, parse the error trace, adjust the Mermaid syntax in docs/architecture/schema.mmd, and re-run (up to 3 retries).
