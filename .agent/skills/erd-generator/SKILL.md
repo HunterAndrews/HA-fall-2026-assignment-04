@@ -1,8 +1,7 @@
 ---
-title: erd-generator
-date: 10/7/26
-author: Hunter Andrews
-description: This skill generates an entity-relationship diagram (ERD) from a Mermaid file.
+name: erd-generator
+description: This skill generates an entity-relationship diagram (ERD) from a Mermaid file. It is triggered when the user requests an ERD, data model, database schema diagram, or architecture diagram.
+---
 
 # Execution Workflow
 
